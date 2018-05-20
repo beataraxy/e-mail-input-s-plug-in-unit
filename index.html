@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>HTML5</title>
+
+    <style>
+        .wrapper {
+            width: 300px;
+            margin: 100px auto;
+
+        }
+
+        .text_block {
+            position: relative;
+        }
+
+        .text {
+            resize: none;
+            width: 300px;
+            height: 100px;
+        }
+
+        .counts {
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+            color: #000;
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+<div class="wrapper">
+    <div class="text_block">
+        <textarea class="text" name="textarea" placeholder="输入区域" maxlength="300" spellcheck="false"></textarea>
+
+        <div class="counts">
+            <span class="inputs">0</span>
+            <span>/</span>
+            <span class="totals">300</span>
+        </div>
+    </div>
+    <button class="btn" disabled="">提交</button>
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var input = $(".text").val().length;
+
+        $(".text").keyup(function () {
+            input = $(this).val().length;
+            if (input > 0 && input <= 300) {
+                $(".inputs").html(input);
+                $(".btn").attr('disabled', false);
+            } else {
+                $(".btn").attr('disabled', true);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
